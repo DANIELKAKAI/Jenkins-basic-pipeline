@@ -4,14 +4,16 @@ pipeline {
     stage('build') {
       steps {
          withEnv(["HOME=${env.WORKSPACE}"]) {
-        sh 'pip install --user -r cidr_convert_api/python/requirements.txt'
-      }
+            sh 'pip install --user -r cidr_convert_api/python/requirements.txt'
+         }
       }
     }
     stage('test') {
       steps {
-        sh 'python cidr_convert_api/python/tests.py'
-      }   
+        withEnv(["HOME=${env.WORKSPACE}"]) {
+            sh 'python cidr_convert_api/python/tests.py'
+        }
+      }
     }
   }
 }

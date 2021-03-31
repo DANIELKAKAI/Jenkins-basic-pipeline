@@ -3,7 +3,9 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'pip install --target ${env.WORKSPACE} -r cidr_convert_api/python/requirements.txt'
+         withEnv(["HOME=${env.WORKSPACE}"]) {
+        sh 'pip install -r cidr_convert_api/python/requirements.txt'
+      }
       }
     }
     stage('test') {

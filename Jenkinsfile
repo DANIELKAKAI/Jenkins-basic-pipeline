@@ -4,7 +4,7 @@ pipeline {
     stage('build') {
       steps {
          withEnv(["HOME=${env.WORKSPACE}"]) {
-        sh 'pip install -r cidr_convert_api/python/requirements.txt'
+        sh 'pip install --user -r cidr_convert_api/python/requirements.txt'
       }
       }
     }

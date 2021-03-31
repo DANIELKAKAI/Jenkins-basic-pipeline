@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'pip install -r cidr_convert_api/python/requirements.txt'
+        sh 'pip3 install -r cidr_convert_api/python/requirements.txt --user'
       }
     }
     stage('test') {

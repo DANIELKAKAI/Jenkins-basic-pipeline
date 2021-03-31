@@ -26,7 +26,3 @@ class CidrMaskConvert:
         return str(cidr)
 
 
-class IpValidate:
-
-    def ipv4_validation(self, val):
-        return True

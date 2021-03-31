@@ -5,7 +5,7 @@ from convert import *
 
 app = Flask(__name__)
 convert = CidrMaskConvert()
-validate = IpValidate()
+
 
 # Just a health check
 @app.route("/")
@@ -39,16 +39,6 @@ def url_mask_to_cidr():
     }
     return jsonify(res)
 
-# # e.g. http://127.0.0.1:8000/ip-validation?value=255.0.0.0
-@app.route("/ip-validation")
-def url_ipv4_validation():
-    val = request.args.get('value')
-    res = {
-        "function": "ipv4Validation",
-        "input": val,
-        "output": validate.ipv4_validation(val),
-    }
-    return jsonify(res)
 
 
 if __name__ == '__main__':
